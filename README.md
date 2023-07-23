@@ -1,2 +1,2 @@
 # ProcBuilder
-WPF app that help write stored procedures for SQL tables by connecting to MS SQL 
+WPF app that helps write stored procedures for SQL tables by connecting to MS SQL 
