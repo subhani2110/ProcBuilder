@@ -1,0 +1,92 @@
+﻿<Window x:Class="SqlToCsv.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SqlToCsv"
+        mc:Ignorable="d"
+        Title="Sql Helper" Height="550" Width="800" Loaded="Window_Loaded" FontFamily="Century Gothic" FontSize="16" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <GroupBox Header="Local Servers" Margin="20"  >
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock x:Name="serverLbl" Grid.Row="0" Grid.Column="0" Text="Loading..." Margin="10"/>
+                    <TextBlock Grid.Row="1" Grid.Column="0" Text="Databases" Margin="10"/>
+                    <TextBlock Grid.Row="2" Grid.Column="0" Text="Tables" Margin="10"/>
+
+
+                    <ComboBox Grid.Row="0" Grid.Column="1" IsEnabled="False" x:Name="serverList" Width="200" Margin="10" SelectionChanged="serverList_SelectionChanged"/>
+                    <ComboBox Grid.Row="1" Grid.Column="1" IsEnabled="False" x:Name="dbList" Width="200" Margin="10" SelectionChanged="dbList_SelectionChanged" />
+                    <ComboBox Grid.Row="2" Grid.Column="1" IsEnabled="False" x:Name="tableList" Width="200" Margin="10" />
+                    <Button Grid.Row="3" Grid.Column="1" x:Name="getCsv" Content="Generate Csv" Margin="10" Click="getCsv_Click"/>
+                    <Button Grid.Row="4" Grid.Column="1" x:Name="getSp" Content="Generate St. Proc " Margin="10" Click="getSp_Click"/>
+
+                </Grid>
+            </GroupBox>
+        </Grid>
+        <Grid Grid.Column="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <GroupBox Header="Remote Server" Margin="20">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Grid.Row="0" Grid.Column="0" Text="Server" Margin="10"/>
+                    <TextBlock Grid.Row="1" Grid.Column="0" Text="User Id" Margin="10"/>
+                    <TextBlock Grid.Row="2" Grid.Column="0" Text="Password" Margin="10"/>
+                    <TextBlock Grid.Row="4" Grid.Column="0" Text="Databases" Margin="10"/>
+                    <TextBlock Grid.Row="5" Grid.Column="0" Text="Tables" Margin="10"/>
+
+
+                    <TextBox Grid.Row="0" Grid.Column="1" x:Name="serverTb" Width="200" Margin="10" />
+                    <TextBox Grid.Row="1" Grid.Column="1" x:Name="userIdTb" Width="200" Margin="10"/>
+                    <TextBox Grid.Row="2" Grid.Column="1" x:Name="passwordTb" Width="200" Margin="10" />
+                    <Button Grid.Row="3" Grid.Column="1" x:Name="connectDb" Content="Connect to Server" Margin="10" Click="connectDb_Click"/>
+                    <ComboBox Grid.Row="4" Grid.Column="1" IsEnabled="False" x:Name="dbListR" Width="200" Margin="10" SelectionChanged="dbListR_SelectionChanged" />
+                    <ComboBox Grid.Row="5" Grid.Column="1" IsEnabled="False" x:Name="tableListR" Width="200" Margin="10" />
+                    <Button Grid.Row="6" Grid.Column="1" x:Name="getCsvR" Content="Generate Csv" Margin="10" Click="getCsvR_Click"/>
+
+                </Grid>
+            </GroupBox>
+        </Grid>
+    </Grid>
+</Window>
